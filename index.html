@@ -146,6 +146,57 @@
     .contact-links a:hover {
       color: var(--color-accent);
     }
+
+    /* Floating contact button */
+    .contact-btn {
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+      background: var(--color-primary);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 1.2rem;
+      transition: background 0.3s;
+      z-index: 100;
+    }
+
+    .contact-btn:hover {
+      background: var(--color-secondary);
+    }
+
+    /* Popup for contact options */
+    .contact-popup {
+      display: none;
+      position: fixed;
+      left: 10px;
+      bottom: 60px;
+      background: var(--color-card-bg);
+      color: var(--color-text);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      width: 200px;
+      z-index: 100;
+    }
+
+    .contact-popup a {
+      display: block;
+      margin: 10px 0;
+      color: var(--color-accent);
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .contact-popup a:hover {
+      color: var(--color-primary);
+    }
+
+    .contact-popup.show {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -156,124 +207,33 @@
     </section>
 
     <div class="plans-grid">
-      <!-- Netflix Plans -->
-      <div class="plan-card">
-        <h3>Netflix 1 Month 4K UHD 1 Screen</h3>
-        <div class="price">₹129</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=129" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Netflix 3 Months 4K UHD 1 Screen</h3>
-        <div class="price">₹349</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=349" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <!-- Prime Video Plans -->
-      <div class="plan-card">
-        <h3>Prime Video 4K 1 Month 1 Screen</h3>
-        <div class="price">₹49</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Prime Video 4K 3 Months 1 Screen</h3>
-        <div class="price">₹129</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=129" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Prime Video 4K 6 Months on Your Mail 5+ Screens</h3>
-        <div class="price">₹299</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=299" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Prime Video 4K 12 Months 1 Screen</h3>
-        <div class="price">₹320</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=320" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <!-- Zee5 Plans -->
-      <div class="plan-card">
-        <h3>Zee5 Full HD 1 Month 1 Screen</h3>
-        <div class="price">₹49</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Zee5 Full HD 3 Months 1 Screen</h3>
-        <div class="price">₹129</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=129" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Zee5 Full HD 6 Months 1 Screen</h3>
-        <div class="price">₹169</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=169" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Zee5 Full HD 12 Months 1 Screen</h3>
-        <div class="price">₹240</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=240" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Zee5 Full HD 12 Months on Your Number 5+ Screens</h3>
-        <div class="price">₹349</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=349" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <!-- SonyLiv Plans -->
-      <div class="plan-card">
-        <h3>SonyLiv 4K 1 Screen 1 Month</h3>
-        <div class="price">₹49</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>SonyLiv 4K 1 Screen 3 Months</h3>
-        <div class="price">₹169</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=169" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>SonyLiv 4K 1 Screen 6 Months</h3>
-        <div class="price">₹269</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=269" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>SonyLiv 4K 1 Screen 1 Year</h3>
-        <div class="price">₹299</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=299" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>SonyLiv 4K on Your Number 1 Year</h3>
-        <div class="price">₹499</div>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=499" target="_blank" class="buy-button">Buy Now</a>
-      </div>
+      <!-- Add your plan cards here -->
     </div>
 
     <div class="cart-popup" id="cart-popup">Item added to cart</div>
+  </div>
 
-    <div class="contact-links">
-      <a href="https://wa.me/8618388937" target="_blank">Contact via WhatsApp</a>
-      <a href="https://www.instagram.com/mr.yogi_ott" target="_blank">Instagram</a>
-    </div>
+  <!-- Floating contact button -->
+  <div class="contact-btn" id="contact-btn">Contact Us</div>
+
+  <!-- Contact popup -->
+  <div class="contact-popup" id="contact-popup">
+    <a href="https://wa.me/8618388937" target="_blank">Contact via WhatsApp</a>
+    <a href="https://www.instagram.com/mr.yogi_ott" target="_blank">Instagram</a>
   </div>
 
   <script>
-    function addToCart(planName, price) {
-      // Show cart popup
-      document.getElementById('cart-popup').textContent = `${planName} added to cart for ₹${price}`;
-      document.getElementById('cart-popup').classList.add('show');
-      setTimeout(() => {
-        document.getElementById('cart-popup').classList.remove('show');
-      }, 3000);
-    }
+    // Toggle the contact options popup
+    document.getElementById('contact-btn').addEventListener('click', function() {
+      document.getElementById('contact-popup').classList.toggle('show');
+    });
+
+    // Close the popup if the user clicks outside
+    window.addEventListener('click', function(event) {
+      if (!event.target.closest('#contact-btn') && !event.target.closest('#contact-popup')) {
+        document.getElementById('contact-popup').classList.remove('show');
+      }
+    });
   </script>
 </body>
-  </html>
+</html>
