@@ -143,6 +143,18 @@
       background: var(--color-secondary);
     }
 
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: red;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+
     /* Cart popup */
     .cart-popup {
       display: none;
@@ -348,7 +360,7 @@
         <a href="#" class="buy-button" onclick="addToCart('SonyLiv 4K 1 Screen 3 Months', 169)">Add to Cart</a>
       </div>
 
-<!-- Zee5 Plans -->
+      <!-- Zee5 Plans -->
       <div class="plan-card">
         <div class="plan-header">
           <h3>Zee5 Full HD 1 Month 1 Screen</h3>
@@ -394,7 +406,10 @@
   </div>
 
   <!-- Floating cart button -->
-  <div class="cart-btn" id="cart-btn">🛒</div>
+  <div class="cart-btn" id="cart-btn">
+    🛒
+    <div class="cart-count" id="cart-count">0</div>
+  </div>
 
   <!-- Cart popup -->
   <div class="cart-popup" id="cart-popup">
@@ -412,6 +427,7 @@
     function addToCart(item, price) {
       cart.push({ item, price });
       updateCartPopup();
+      updateCartCount();
     }
 
     // Function to update cart popup
@@ -430,6 +446,12 @@
       cartPopup.classList.add('show');
     }
 
+    // Function to update cart count
+    function updateCartCount() {
+      const cartCount = document.getElementById('cart-count');
+      cartCount.textContent = cart.length;
+    }
+
     // Toggle the cart popup visibility when cart icon is clicked
     document.getElementById('cart-btn').addEventListener('click', function() {
       const cartPopup = document.getElementById('cart-popup');
@@ -437,4 +459,4 @@
     });
   </script>
 </body>
-        </html>
+            </html>
