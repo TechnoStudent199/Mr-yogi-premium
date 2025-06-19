@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - MR.YOGI PREMIUM SUBSCRIPTION'S</title>
+  <style>
+    :root {
+      --color-primary: #6a00ff; /* Purple */
+      --color-secondary: #00f2ff; /* Cyan */
+      --color-accent: #ff00c4; /* Neon Pink */
+      --color-bg: #121212; /* Dark Background */
+      --color-text: #ffffff; /* White Text */
+      --color-card-bg: #1d1d1d; /* Dark Card Background */
+      --color-price-bg: #ff6b6b; /* Neon Red for Price */
+      --color-button-bg: #ff0044; /* Red for Buy Now Button */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--color-primary);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--color-secondary);
+    }
+
+    .cart-items-list {
+      margin-top: 30px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-items-list li {
+      background: var(--color-card-bg);
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    .cart-items-list .item-details {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .item-name {
+      font-weight: bold;
+    }
+
+    .price {
+      color: var(--color-price-bg);
+    }
+
+    .total {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .buy-button {
+      background: var(--color-button-bg);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .buy-button:hover {
+      background: var(--color-secondary);
+    }
+
+    .back-button {
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Checkout</h1>
+      <p>Review your items and proceed with the payment</p>
+    </section>
+
+    <div class="cart-items-list" id="cart-items-list">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+
+    <div class="total" id="total">
+      <!-- Total amount will be dynamically calculated here -->
+    </div>
+
+    <button class="buy-button" id="checkout-button">Proceed to Checkout</button>
+
+    <a href="index.html" class="back-button">Back to Shopping</a>
+  </div>
+
+  <script>
+    // Retrieve cart data from localStorage (or a global cart array)
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Function to update the cart items list
+    function updateCartItems() {
+      const cartItemsList = document.getElementById('cart-items-list');
+      cartItemsList.innerHTML = '';
+
+      let total = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <div class="item-details">
+            <span class="item-name">${item.item}</span>
+            <span class="price">₹${item.price}</span>
+          </div>
+        `;
+        cartItemsList.appendChild(li);
+
+        total += item.price;
+      });
+
+      // Update the total price
+      document.getElementById('total').textContent = `Total: ₹${total}`;
+    }
+
+    // Function to handle checkout
+    function handleCheckout() {
+      if (cart.length > 0) {
+        alert('Thank you for your purchase! Redirecting to payment gateway...');
+        // You can implement a real payment gateway here
+      } else {
+        alert('Your cart is empty!');
+      }
+    }
+
+    // Initial setup
+    updateCartItems();
+    document.getElementById('checkout-button').addEventListener('click', handleCheckout);
+  </script>
+</body>
+  </html>
