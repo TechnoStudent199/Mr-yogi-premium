@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MR.YOGI PREMIUM SUBSCRIPTION'S</title>
+  <style>
+    :root {
+      --color-primary: linear-gradient(45deg, #ff0044, #6a00ff); /* Neon Red and Purple Gradient */
+      --color-secondary: linear-gradient(45deg, #00f2ff, #00ff83); /* Neon Cyan and Green Gradient */
+      --color-accent: #ff00c4; /* Neon Pink */
+      --color-bg: #000000; /* Black Background */
+      --color-text: #ffffff; /* White Text */
+      --color-card-bg: #111111; /* Dark Card Background */
+      --color-price-bg: #ff6b6b; /* Neon Red for Price */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    .hero { text-align: center; margin: 40px 0; }
+    .hero h1 { font-size: 3rem; background: var(--color-primary); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary); }
+    .hero p { font-size: 1.2rem; color: var(--color-secondary); margin-top: 10px; }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .plan-card {
+      background: var(--color-card-bg);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      border: 2px solid var(--color-secondary);
+      box-shadow: 0 0 10px 0px var(--color-secondary);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1), 0 0 15px var(--color-primary);
+    }
+
+    .plan-card h3 {
+      font-size: 1.3rem;
+      color: var(--color-accent);
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent);
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--color-price-bg);
+      margin-bottom: 16px;
+      text-shadow: 0 0 5px var(--color-price-bg), 0 0 10px var(--color-price-bg);
+    }
+
+    .plan-card .duration {
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 10px;
+    }
+
+    .buy-button {
+      background: var(--color-primary);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.2s, box-shadow 0.2s;
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+      box-shadow: 0 0 10px 0px var(--color-primary);
+    }
+
+    .buy-button:hover {
+      background: var(--color-secondary);
+      box-shadow: 0 0 10px 0px var(--color-secondary);
+    }
+
+    .plan-card .select-size {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .select-size button {
+      padding: 8px;
+      background-color: var(--color-secondary);
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .select-size button:hover {
+      background-color: var(--color-primary);
+    }
+
+    .cart-popup {
+      display: none;
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .cart-popup.show {
+      display: block;
+    }
+
+    .contact-links {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .contact-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: var(--color-primary);
+      font-size: 1.2rem;
+    }
+
+    .contact-links a:hover {
+      color: var(--color-accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>MR.YOGI PREMIUM SUBSCRIPTION'S</h1>
+      <p>Your premium source for OTT apps, AI tools, software apps, and PC games at affordable prices</p>
+    </section>
+
+    <div class="plans-grid">
+      <!-- Example Plan Cards -->
+      <div class="plan-card">
+        <h3>Amazon Prime 4K [On Your Gmail]</h3>
+        <div class="price">₹99 <span>(67% Off)</span></div>
+        <div class="select-size">
+          <button onclick="addToCart('Amazon Prime 4K [On Your Gmail]', 99)">1 Month</button>
+          <button onclick="addToCart('Amazon Prime 4K [On Your Gmail]', 150)">1 Month Mail</button>
+        </div>
+        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=99" target="_blank" class="buy-button">Buy Now</a>
+      </div>
+
+      <div class="plan-card">
+        <h3>Zee5 Full HD 1 Month [1 Screen]</h3>
+        <div class="price">₹49 <span>(76% Off)</span></div>
+        <div class="select-size">
+          <button onclick="addToCart('Zee5 Full HD 1 Month', 49)">1 Month</button>
+          <button onclick="addToCart('Zee5 Full HD 3 Months', 129)">3 Months</button>
+        </div>
+        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
+      </div>
+
+      <!-- More plan cards follow here -->
+    </div>
+
+    <div class="cart-popup" id="cart-popup">Item added to cart</div>
+
+    <div class="contact-links">
+      <a href="https://wa.me/8618388937" target="_blank">Contact via WhatsApp</a>
+      <a href="https://www.instagram.com/mr.yogi_ott" target="_blank">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    function addToCart(planName, price) {
+      // Show cart popup
+      document.getElementById('cart-popup').textContent = `${planName} added to cart for ₹${price}`;
+      document.getElementById('cart-popup').classList.add('show');
+      setTimeout(() => {
+        document.getElementById('cart-popup').classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
