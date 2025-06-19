@@ -54,7 +54,7 @@
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
       margin-top: 30px;
-      grid-auto-rows: minmax(200px, auto);
+      grid-auto-rows: minmax(250px, auto);
     }
 
     .plan-card {
@@ -72,13 +72,20 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.2), 0 0 15px var(--color-primary);
     }
 
+    .plan-card .plan-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
     .plan-card h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: var(--color-text);
-      margin-bottom: 10px;
       background-color: var(--color-price-bg);
       padding: 10px;
       border-radius: 6px;
+      margin: 0;
     }
 
     .price {
@@ -96,6 +103,7 @@
 
     .plan-card ul li {
       margin: 5px 0;
+      color: var(--color-text);
     }
 
     .buy-button {
@@ -217,10 +225,12 @@
     </section>
 
     <div class="plans-grid">
-      <!-- Netflix Plans -->
+      <!-- YouTube Premium Plan -->
       <div class="plan-card">
-        <h3>YouTube Premium</h3>
-        <div class="price">₹39 per month</div>
+        <div class="plan-header">
+          <h3>YouTube Premium</h3>
+          <div class="price">₹39 per month</div>
+        </div>
         <ul>
           <li>Ad-Free Videos</li>
           <li>Background Play</li>
@@ -230,9 +240,12 @@
         <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=39" target="_blank" class="buy-button">Buy Now</a>
       </div>
 
+      <!-- Netflix Plan -->
       <div class="plan-card">
-        <h3>Netflix 1 Month 4K UHD 1 Screen</h3>
-        <div class="price">₹119 per month</div>
+        <div class="plan-header">
+          <h3>Netflix 1 Month 4K UHD 1 Screen</h3>
+          <div class="price">₹119 per month</div>
+        </div>
         <ul>
           <li>4K Ultra HD Quality</li>
           <li>Multiple Device Support</li>
@@ -242,10 +255,12 @@
         <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=119" target="_blank" class="buy-button">Buy Now</a>
       </div>
 
-      <!-- Prime Video Plans -->
+      <!-- Prime Video Plan -->
       <div class="plan-card">
-        <h3>Prime Video 4K 1 Month 1 Screen</h3>
-        <div class="price">₹49</div>
+        <div class="plan-header">
+          <h3>Prime Video 4K 1 Month 1 Screen</h3>
+          <div class="price">₹49</div>
+        </div>
         <ul>
           <li>4K Ultra HD Quality</li>
           <li>1 Screen</li>
@@ -253,51 +268,8 @@
         <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
       </div>
 
-      <div class="plan-card">
-        <h3>Prime Video 4K 3 Months 1 Screen</h3>
-        <div class="price">₹129</div>
-        <ul>
-          <li>4K Ultra HD Quality</li>
-          <li>Multiple Device Support</li>
-          <li>No Ads</li>
-        </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=129" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Prime Video 4K 6 Months on Your Mail 5+ Screens</h3>
-        <div class="price">₹299</div>
-        <ul>
-          <li>5+ Screens on Your Mail</li>
-          <li>6 Months</li>
-        </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=299" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Prime Video 4K 12 Months 1 Screen</h3>
-        <div class="price">₹320</div>
-        <ul>
-          <li>4K Ultra HD Quality</li>
-          <li>1 Screen</li>
-          <li>No Ads</li>
-        </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=320" target="_blank" class="buy-button">Buy Now</a>
-      </div>
-
-      <!-- SonyLiv Plans -->
-      <div class="plan-card">
-        <h3>SonyLiv 4K 1 Screen 1 Month</h3>
-        <div class="price">₹49</div>
-        <ul>
-          <li>4K Ultra HD Quality</li>
-          <li>1 Screen</li>
-        </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
-      </div>
+      <!-- Additional Plans can be added similarly -->
     </div>
-
-    <div class="cart-popup" id="cart-popup">Item added to cart</div>
   </div>
 
   <!-- Floating contact button -->
