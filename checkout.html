@@ -165,7 +165,7 @@
 
     <div class="payment-method">
       <h2>Pay via UPI</h2>
-      <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=">
+      <a id="upi-link" href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=">
         <button class="upi-button">Pay ₹<span id="total-amount"></span> via UPI</button>
       </a>
     </div>
@@ -197,6 +197,10 @@
       // Update the total price
       document.getElementById('total').textContent = `Total: ₹${total}`;
       document.getElementById('total-amount').textContent = total;
+
+      // Update the UPI payment link with the correct total amount
+      const upiLink = document.getElementById('upi-link');
+      upiLink.href = `upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=${total}`;
     }
 
     // Function to handle checkout
