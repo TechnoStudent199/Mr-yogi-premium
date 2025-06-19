@@ -123,54 +123,54 @@
       background: var(--color-secondary);
     }
 
-    /* Floating contact button */
-    .contact-btn {
+    /* Floating cart button */
+    .cart-btn {
       position: fixed;
-      left: 10px;
+      right: 10px;
       bottom: 10px;
       background: var(--color-primary);
       color: white;
       padding: 12px 20px;
-      border-radius: 30px;
+      border-radius: 50%;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       transition: background 0.3s;
       z-index: 100;
     }
 
-    .contact-btn:hover {
+    .cart-btn:hover {
       background: var(--color-secondary);
     }
 
-    /* Contact popup */
-    .contact-popup {
+    /* Cart popup */
+    .cart-popup {
       display: none;
       position: fixed;
-      left: 10px;
+      right: 10px;
       bottom: 60px;
       background: var(--color-card-bg);
       color: var(--color-text);
       padding: 15px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      width: 200px;
+      width: 250px;
       z-index: 100;
     }
 
-    .contact-popup a {
-      display: block;
-      margin: 10px 0;
+    .cart-popup ul {
+      text-align: left;
+    }
+
+    .cart-popup a {
       color: var(--color-accent);
       text-decoration: none;
-      font-size: 1.2rem;
+      font-weight: 600;
+      display: block;
+      margin-top: 10px;
     }
 
-    .contact-popup a:hover {
-      color: var(--color-primary);
-    }
-
-    .contact-popup.show {
+    .cart-popup.show {
       display: block;
     }
 
@@ -208,7 +208,7 @@
         padding: 10px 14px;
       }
 
-      .contact-btn {
+      .cart-btn {
         padding: 10px 18px;
         font-size: 1rem;
       }
@@ -227,7 +227,7 @@
         padding: 8px 12px;
       }
 
-      .contact-btn {
+      .cart-btn {
         font-size: 0.9rem;
         padding: 8px 14px;
       }
@@ -254,7 +254,7 @@
           <li>YouTube Music</li>
           <li>Offline Downloads</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=39" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('YouTube Premium', 39)">Add to Cart</a>
       </div>
 
       <!-- Netflix 1 Month 4K UHD 1 Screen -->
@@ -269,7 +269,7 @@
           <li>Offline Downloads</li>
           <li>No Ads</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=119" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('Netflix 1 Month 4K UHD 1 Screen', 119)">Add to Cart</a>
       </div>
 
       <!-- Prime Video Plans -->
@@ -282,7 +282,7 @@
           <li>4K Ultra HD Quality</li>
           <li>1 Screen</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('Prime Video 4K 1 Month 1 Screen', 49)">Add to Cart</a>
       </div>
 
       <div class="plan-card">
@@ -295,7 +295,7 @@
           <li>Multiple Device Support</li>
           <li>No Ads</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=129" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('Prime Video 4K 3 Months 1 Screen', 129)">Add to Cart</a>
       </div>
 
       <div class="plan-card">
@@ -307,7 +307,7 @@
           <li>5+ Screens on Your Mail</li>
           <li>6 Months</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=299" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('Prime Video 4K 6 Months on Your Mail 5+ Screens', 299)">Add to Cart</a>
       </div>
 
       <div class="plan-card">
@@ -320,7 +320,7 @@
           <li>1 Screen</li>
           <li>No Ads</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=320" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('Prime Video 4K 12 Months 1 Screen', 320)">Add to Cart</a>
       </div>
 
       <!-- SonyLiv Plans -->
@@ -333,7 +333,7 @@
           <li>4K Ultra HD Quality</li>
           <li>1 Screen</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('SonyLiv 4K 1 Screen 1 Month', 49)">Add to Cart</a>
       </div>
 
       <div class="plan-card">
@@ -345,7 +345,7 @@
           <li>4K Ultra HD Quality</li>
           <li>1 Screen</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=169" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('SonyLiv 4K 1 Screen 3 Months', 169)">Add to Cart</a>
       </div>
 
       <!-- Zee5 Plans -->
@@ -358,7 +358,7 @@
           <li>Full HD Quality</li>
           <li>1 Screen</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=49" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('Zee5 Full HD 1 Month 1 Screen', 49)">Add to Cart</a>
       </div>
 
       <div class="plan-card">
@@ -370,7 +370,7 @@
           <li>Full HD Quality</li>
           <li>1 Screen</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=129" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('Zee5 Full HD 3 Months 1 Screen', 129)">Add to Cart</a>
       </div>
 
       <div class="plan-card">
@@ -382,38 +382,59 @@
           <li>Full HD Quality</li>
           <li>1 Screen</li>
         </ul>
-        <a href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=169" target="_blank" class="buy-button">Buy Now</a>
+        <a href="#" class="buy-button" onclick="addToCart('Zee5 Full HD 6 Months 1 Screen', 169)">Add to Cart</a>
       </div>
     </div>
 
     <!-- Learn More Section -->
     <div class="learn-more">
       <p>24/7 Customer Support | 100% Trusted Service</p>
-      <a href="aboutus.html">Learn More</a>
+      <a href="about.html">Learn More</a>
     </div>
   </div>
 
-  <!-- Floating contact button -->
-  <div class="contact-btn" id="contact-btn">Contact Us</div>
+  <!-- Floating cart button -->
+  <div class="cart-btn" id="cart-btn">🛒</div>
 
-  <!-- Contact popup -->
-  <div class="contact-popup" id="contact-popup">
-    <a href="https://wa.me/8618388937" target="_blank">Contact via WhatsApp</a>
-    <a href="https://www.instagram.com/mr.yogi_premium_seller?igsh=MTA3YWNjMWNhdXpwMg==" target="_blank">Instagram</a>
+ <!-- Cart popup -->
+  <div class="cart-popup" id="cart-popup">
+    <h3>Your Cart</h3>
+    <ul id="cart-items">
+      <!-- Cart items will appear here -->
+    </ul>
+    <a href="checkout.html">Go to Checkout</a>
   </div>
 
   <script>
-    // Toggle the contact options popup
-    document.getElementById('contact-btn').addEventListener('click', function() {
-      document.getElementById('contact-popup').classList.toggle('show');
-    });
+    let cart = [];
 
-    // Close the popup if the user clicks outside
-    window.addEventListener('click', function(event) {
-      if (!event.target.closest('#contact-btn') && !event.target.closest('#contact-popup')) {
-        document.getElementById('contact-popup').classList.remove('show');
-      }
+    // Function to add items to the cart
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      updateCartPopup();
+    }
+
+    // Function to update cart popup
+    function updateCartPopup() {
+      const cartPopup = document.getElementById('cart-popup');
+      const cartItemsList = document.getElementById('cart-items');
+      cartItemsList.innerHTML = ''; // Clear previous items
+
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.item} - ₹${item.price}`;
+        cartItemsList.appendChild(li);
+      });
+
+      // Show the cart popup
+      cartPopup.classList.add('show');
+    }
+
+    // Toggle the cart popup visibility when cart icon is clicked
+    document.getElementById('cart-btn').addEventListener('click', function() {
+      const cartPopup = document.getElementById('cart-popup');
+      cartPopup.classList.toggle('show');
     });
   </script>
 </body>
-            </html>
+  </html>
