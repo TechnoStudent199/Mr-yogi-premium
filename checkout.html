@@ -5,72 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout - MR.YOGI PREMIUM SUBSCRIPTION'S</title>
   <style>
-    :root {
-      --color-primary: #ff7f50; /* Coral (primary color like Swiggy/Zomato) */
-      --color-secondary: #ff6f00; /* Dark Orange */
-      --color-accent: #ffffff; /* White for background */
-      --color-text: #333333; /* Dark text */
-      --color-button-bg: #ff0044; /* Button background color */
-      --color-button-text: #ffffff; /* Button text color */
-      --color-card-bg: #f8f8f8; /* Light gray for cards */
-      --color-price-bg: #ff6b6b; /* Neon Red for Price */
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* Basic Styling */
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: var(--color-accent);
-      color: var(--color-text);
-      line-height: 1.6;
-      margin: 0;
+      background: #f9f9f9;
+      color: #333;
       padding: 20px;
     }
-
     .container {
       max-width: 500px;
       margin: 0 auto;
       padding: 20px;
-      background: var(--color-accent);
+      background: #ffffff;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
-
     .hero h1 {
       font-size: 2.5rem;
-      color: var(--color-primary);
+      color: #ff7f50; /* Primary color */
       margin-bottom: 20px;
     }
-
     .total {
       font-size: 2rem;
       font-weight: bold;
-      color: var(--color-price-bg);
+      color: #ff6b6b;
       margin-bottom: 30px;
     }
-
     .buy-button {
-      background: var(--color-primary);
-      color: var(--color-button-text);
+      background: #ff7f50;
+      color: #fff;
       padding: 12px 18px;
       border-radius: 6px;
-      font-weight: 600;
       width: 100%;
       text-align: center;
       cursor: pointer;
       font-size: 1.2rem;
+      margin-top: 20px;
       border: none;
     }
-
     .buy-button:hover {
-      background: var(--color-secondary);
+      background: #ff6f00;
     }
-
     .payment-method {
       margin-top: 30px;
     }
-
     .upi-button {
       background: #ff0044;
       color: white;
@@ -82,21 +61,24 @@
       cursor: pointer;
       display: inline-block;
     }
-
     .upi-button:hover {
       background: #ff6b6b;
     }
-
     .back-button {
       text-decoration: none;
-      color: var(--color-primary);
+      color: #ff7f50;
       font-weight: 600;
       display: inline-block;
       margin-top: 20px;
     }
-
     .back-button:hover {
-      color: var(--color-secondary);
+      color: #ff6f00;
+    }
+    #qrcode {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
     }
   </style>
 </head>
@@ -107,11 +89,15 @@
       <p>Review the total amount and proceed with the payment</p>
     </section>
 
+    <!-- Total amount -->
     <div class="total" id="total">
-      <!-- Total amount will be dynamically calculated here -->
       ₹0
     </div>
 
+    <!-- QR Code for UPI Payment -->
+    <div id="qrcode"></div>
+
+    <!-- UPI Payment button -->
     <div class="payment-method">
       <h2>Pay via UPI</h2>
       <a id="upi-link" href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=">
@@ -122,6 +108,9 @@
     <a href="index.html" class="back-button">Back to Shopping</a>
   </div>
 
+  <!-- Include the QR Code generation library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
   <script>
     // Retrieve cart data from localStorage (or an empty array if not found)
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -130,7 +119,7 @@
     function updateTotalAmount() {
       let total = 0;
 
-      // Calculate the total amount based on the cart data
+      // Retrieve cart data from localStorage
       cart.forEach(item => {
         total += item.price;
       });
@@ -139,9 +128,21 @@
       document.getElementById('total').textContent = `₹${total}`;
       document.getElementById('total-amount').textContent = total;
 
-      // Update the UPI payment link with the correct amount
+      // Update the UPI payment link with the correct total amount
       const upiLink = document.getElementById('upi-link');
       upiLink.href = `upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=${total}`;
+
+      // Generate the QR code for the UPI payment
+      generateQRCode(`upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=${total}`);
+    }
+
+    // Function to generate the QR code
+    function generateQRCode(upilink) {
+      // Use the QRCode library to generate the QR code
+      QRCode.toCanvas(document.getElementById('qrcode'), upilink, function (error) {
+        if (error) console.error(error);
+        console.log('QR code generated!');
+      });
     }
 
     // Initial setup to calculate and display the total
