@@ -35,6 +35,31 @@
       margin-bottom: 30px;
     }
 
+    .upi-info {
+      background: #f1f1f1;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      font-size: 1.2rem;
+    }
+
+    .copy-button {
+      background: #4CAF50;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background: #45a049;
+    }
+
+    .payment-method {
+      margin-top: 30px;
+    }
+
     .upi-button {
       background: #ff0044;
       color: white;
@@ -62,6 +87,17 @@
     .back-button:hover {
       color: #ff6f00;
     }
+
+    .instruction {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .instruction a {
+      color: #ff7f50;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -73,8 +109,12 @@
     </section>
 
     <!-- Total amount -->
-    <div class="total" id="total">
-      ₹0
+    <div class="total" id="total">₹0</div>
+
+    <!-- UPI Payment Info -->
+    <div class="upi-info">
+      <p><strong>UPI ID:</strong> mryogipremium@ybl</p>
+      <button class="copy-button" onclick="copyUPI()">Copy UPI ID</button>
     </div>
 
     <!-- UPI Payment button -->
@@ -83,6 +123,14 @@
       <a id="upi-link" href="upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=">
         <button class="upi-button">Pay ₹<span id="total-amount"></span> via UPI</button>
       </a>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instruction">
+      <p>
+        After making the payment, please <strong>take a screenshot of the payment</strong> and send it via 
+        <a href="https://wa.me/8618388937?text=I%20have%20made%20the%20payment%20for%20MR.YOGI%20PREMIUM%20SUBSCRIPTION." target="_blank">WhatsApp</a> to activate your account.
+      </p>
     </div>
 
     <a href="index.html" class="back-button">Back to Shopping</a>
@@ -111,6 +159,16 @@
       // Update the UPI payment link with the correct total amount
       const upiLink = document.getElementById('upi-link');
       upiLink.href = `upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=${total}`;
+    }
+
+    // Function to copy the UPI ID
+    function copyUPI() {
+      const upiId = "mryogipremium@ybl";
+      navigator.clipboard.writeText(upiId).then(() => {
+        alert('UPI ID copied to clipboard!');
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
     }
 
     // Initial setup to calculate and display the total
