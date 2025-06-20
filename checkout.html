@@ -5,51 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout - MR.YOGI PREMIUM SUBSCRIPTION'S</title>
   <style>
-    /* Basic Styling */
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #f9f9f9;
       color: #333;
       padding: 20px;
+      text-align: center;
     }
+
     .container {
       max-width: 500px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 30px;
       background: #ffffff;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
     }
+
     .hero h1 {
       font-size: 2.5rem;
       color: #ff7f50; /* Primary color */
       margin-bottom: 20px;
     }
+
     .total {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: bold;
       color: #ff6b6b;
       margin-bottom: 30px;
     }
-    .buy-button {
-      background: #ff7f50;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 6px;
-      width: 100%;
-      text-align: center;
-      cursor: pointer;
-      font-size: 1.2rem;
-      margin-top: 20px;
-      border: none;
-    }
-    .buy-button:hover {
-      background: #ff6f00;
-    }
-    .payment-method {
-      margin-top: 30px;
-    }
+
     .upi-button {
       background: #ff0044;
       color: white;
@@ -61,9 +46,11 @@
       cursor: pointer;
       display: inline-block;
     }
+
     .upi-button:hover {
       background: #ff6b6b;
     }
+
     .back-button {
       text-decoration: none;
       color: #ff7f50;
@@ -71,32 +58,24 @@
       display: inline-block;
       margin-top: 20px;
     }
+
     .back-button:hover {
       color: #ff6f00;
-    }
-    #qrcode {
-      margin-top: 20px;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      display: inline-block;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <section class="hero">
       <h1>Checkout</h1>
-      <p>Review the total amount and proceed with the payment</p>
+      <p>Review your total amount and proceed with the payment</p>
     </section>
 
     <!-- Total amount -->
     <div class="total" id="total">
       ₹0
     </div>
-
-    <!-- QR Code for UPI Payment -->
-    <div id="qrcode"></div>
 
     <!-- UPI Payment button -->
     <div class="payment-method">
@@ -132,22 +111,11 @@
       // Update the UPI payment link with the correct total amount
       const upiLink = document.getElementById('upi-link');
       upiLink.href = `upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=${total}`;
-
-      // Generate the QR code for the UPI payment
-      generateQRCode(`upi://pay?pa=mryogipremium@ybl&pn=MR.YOGI PREMIUM SUBSCRIPTION'S&am=${total}`);
-    }
-
-    // Function to generate the QR code
-    function generateQRCode(upilink) {
-      // Use the QRCode library to generate the QR code
-      QRCode.toCanvas(document.getElementById('qrcode'), upilink, function (error) {
-        if (error) console.error(error);
-        console.log('QR code generated!');
-      });
     }
 
     // Initial setup to calculate and display the total
     updateTotalAmount();
   </script>
+
 </body>
 </html>
